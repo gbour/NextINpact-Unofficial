@@ -277,6 +277,17 @@ public class HtmlParser {
 
 		String title = htmlH1Element.getText().toString();
 
+		// subtitle - make it italic
+		TagNode subtitle = getFirstElementByAttValue(actu_title_collumn, 
+				"class", "actu_sub_title");
+		if (subtitle != null) {
+			TagNode itnode = new TagNode("i");
+
+			subtitle.getParent().insertChildBefore(subtitle, itnode);
+			subtitle.getParent().removeChild(subtitle);
+			itnode.addChild(subtitle);
+		}
+
 		TagNode actu_content = getFirstElementByAttValue(rootNode, "class",
 				"actu_content");
 		if (actu_content == null)
