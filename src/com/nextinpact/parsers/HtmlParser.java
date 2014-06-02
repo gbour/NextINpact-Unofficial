@@ -293,10 +293,6 @@ public class HtmlParser {
 		if (actu_content == null)
 			return null;
 
-		for (TagNode link : actu_content.getElementsByName("a", true)) {
-			link.removeAttribute("href");
-		}
-
 		try {
 			INpactArticle content = new INpactArticle();
 			content.Title = Html.fromHtml(title).toString();
